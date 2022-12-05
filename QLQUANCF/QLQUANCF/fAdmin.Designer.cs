@@ -72,7 +72,7 @@
             this.dtgvCategory = new System.Windows.Forms.DataGridView();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbCategory = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.txbCategoryID = new System.Windows.Forms.TextBox();
@@ -214,6 +214,7 @@
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(482, 405);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // panel2
             // 
@@ -533,6 +534,7 @@
             this.btnShowCategory.TabIndex = 3;
             this.btnShowCategory.Text = "Xem";
             this.btnShowCategory.UseVisualStyleBackColor = true;
+            this.btnShowCategory.Click += new System.EventHandler(this.btnShowCategory_Click);
             // 
             // btnEditCategory
             // 
@@ -542,6 +544,7 @@
             this.btnEditCategory.TabIndex = 2;
             this.btnEditCategory.Text = "Sửa";
             this.btnEditCategory.UseVisualStyleBackColor = true;
+            this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
             // 
             // btnDeleteCategory
             // 
@@ -551,6 +554,7 @@
             this.btnDeleteCategory.TabIndex = 1;
             this.btnDeleteCategory.Text = "Xóa";
             this.btnDeleteCategory.UseVisualStyleBackColor = true;
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
             // 
             // btnAddCategory
             // 
@@ -560,6 +564,7 @@
             this.btnAddCategory.TabIndex = 0;
             this.btnAddCategory.Text = "Thêm";
             this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // panel15
             // 
@@ -591,19 +596,19 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.textBox1);
+            this.panel13.Controls.Add(this.txbCategory);
             this.panel13.Controls.Add(this.label6);
             this.panel13.Location = new System.Drawing.Point(3, 69);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(490, 80);
             this.panel13.TabIndex = 2;
             // 
-            // textBox1
+            // txbCategory
             // 
-            this.textBox1.Location = new System.Drawing.Point(171, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(316, 27);
-            this.textBox1.TabIndex = 1;
+            this.txbCategory.Location = new System.Drawing.Point(171, 21);
+            this.txbCategory.Name = "txbCategory";
+            this.txbCategory.Size = new System.Drawing.Size(316, 27);
+            this.txbCategory.TabIndex = 1;
             // 
             // label6
             // 
@@ -1108,7 +1113,7 @@
         private DataGridView dtgvCategory;
         private Panel panel10;
         private Panel panel13;
-        private TextBox textBox1;
+        private TextBox txbCategory;
         private Label label6;
         private Panel panel14;
         private TextBox txbCategoryID;

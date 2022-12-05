@@ -272,9 +272,10 @@ create Table Store
 	amount int,
 	category NVARCHAR(100)
 	
-	primary key (username , material),
+	primary key (username , material , datein),
 	FOREIGN KEY (username) REFERENCES dbo.account(username)
 )
+drop Table Store
 
 create table salary
 (
@@ -702,4 +703,41 @@ SELECT UserName, DisplayName, Type FROM dbo.Account
 
 SELECT * FROM ACCOUNT
 -- PASSWORD DEFAULT = 0
+
+-- 
+select idfoodcategory , name  from foodcategory
+
+
+
+--
+
+-- sửa lại phần thanh toán cập nhật lại ngày checkout
+update bill set status = 1 , Datecheckout = GETDATE() WHERE IDBILL =36
+
+--24 phân trang
+
+SELECT * FROM BILL
+
+
+
+--LẤY RA 4 DÒNG ĐẦU XONG LOẠI 2 DÒNG ĐẦU 
+SELECT TOP 4 * FROM BILL
+EXCEPT 
+SELECT TOP 2 * FROM BILL
+
+--GIẢ SỬ 1 PAGE 2 DÒNG ->PageCount =2 (số dòng mỗi trang) ->pageNum=2
+
+-- xóa foodcategory
+
+select idfood from food f,foodcategory fc where f.idfoodcategory = fc.idfoodcategory and fc.idfoodcategory = 1
+
+Delete billinfo where idFood in (select idfood from food f,foodcategory fc where f.idfoodcategory = fc.idfoodcategory and fc.idfoodcategory = 1)
+
+Delete food where idfoodcategory = 1
+
+
+
+
+
+
 

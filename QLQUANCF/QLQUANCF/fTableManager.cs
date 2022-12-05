@@ -323,5 +323,18 @@ namespace QLQUANCF
             }
             
         }
+        
+
+        //23 gọi thẳng event của nút thanh toán và thêm món
+        private void thanhToánToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button1_Click (this , new EventArgs());
+
+        }
+
+        private void thêmMónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnAddFood_Click(this, new EventArgs());
+        }
     }
 }

@@ -102,5 +102,12 @@ namespace QLQUANCF.DAO
 
             return list;
         }
+
+
+        //FoodCategory
+        public void DeleteFoodByIDFoodCategory(int idFoodCategory)
+        {
+            DataProvider.Instance.ExecuteQuery("Delete food where idfoodcategory = " + idFoodCategory);
+        }
     }
 }

@@ -22,6 +22,9 @@ namespace QLQUANCF
         BindingSource accountList = new BindingSource();
         //-- end 20
 
+        //foodcategoryList
+        BindingSource foodcategoryList = new BindingSource();
+
         //truyền account hiện tại để không đc xóa //21
         public Account loginAccount;
         public fAdmin()
@@ -45,11 +48,14 @@ namespace QLQUANCF
         {
             dtgvFood.DataSource = foodList;
             dtgvAccount.DataSource = accountList;//20
+            dtgvCategory.DataSource = foodcategoryList;
             LoadListFood();
             LoadAccount();
+            LoadFoodCategory();
             LoadCategoryIntoCombobox(cbCategory);
             AddFoodBinding();
             AddAccountBinding();
+            AddFoodCategory();
         }
 
         //20
@@ -64,6 +70,18 @@ namespace QLQUANCF
         void LoadAccount()
         {
             accountList.DataSource = AccountDAO.Instance.GetListAccount();
+        }
+
+        //foodcategoryList
+        void AddFoodCategory()
+        {
+            txbCategoryID.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "idfoodcategory", true, DataSourceUpdateMode.Never));
+            txbCategory.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "name", true, DataSourceUpdateMode.Never));
+        }
+
+        void LoadFoodCategory()
+        {
+            foodcategoryList.DataSource = CategoryDAO.Instance.GetListFoodCategory();  
         }
 
         //kỹ thuật biding -> dữ liệu thay đổi khi thằng này thay đổi thằng kia thay đổi theo
@@ -181,6 +199,7 @@ namespace QLQUANCF
             LoadListFood();
         }
 
+        //17
         private void txbFoodID_TextChanged(object sender, EventArgs e)
         {
             if (dtgvFood.SelectedCells.Count > 0)
@@ -519,6 +538,78 @@ namespace QLQUANCF
             string userName = txbUserName.Text;
 
             ResetPass(userName);
+        }
+
+        private void btnShowCategory_Click(object sender, EventArgs e)
+        {
+            LoadFoodCategory();
+        }
+
+        //foodcategoryList
+
+        void AddFoodCategory( string name)
+        {
+            if (CategoryDAO.Instance.InsertFoodCategory(name))
+            {
+                MessageBox.Show("Thêm danh sách món thành công !!!");
+            }
+            else
+            {
+                MessageBox.Show("ADD FOODCATEGORY FAILSE !!!");
+            }
+
+            LoadFoodCategory();
+        }
+        void UpdateCategory(int idFoodCategory, string name)
+        {
+            if (CategoryDAO.Instance.UpdateFoodCategory(idFoodCategory, name))
+            {
+                MessageBox.Show("Sửa danh sách món thành công !!!");
+            }
+            else
+            {
+                MessageBox.Show("EDIT FOODCATEGORY FAILSE !!!");
+            }
+
+            LoadFoodCategory();
+        }
+
+        void DeleteCategory( int id)
+        {
+            if (CategoryDAO.Instance.DeleteFoodCategory(id))
+            {
+                MessageBox.Show("Xóa danh sách món thành công !!!");
+            }
+            else
+            {
+                MessageBox.Show("DELETE FOODCATEGORY FAILSE !!!");
+            }
+
+            LoadFoodCategory();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnEditCategory_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32 (txbCategoryID.Text);
+            string name = txbCategory.Text;
+            UpdateCategory(id,name);
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        { 
+            string name = txbCategory.Text;
+            AddFoodCategory(name);
+        }
+
+        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txbCategoryID.Text);
+            DeleteCategory(id);
         }
     }
 }
