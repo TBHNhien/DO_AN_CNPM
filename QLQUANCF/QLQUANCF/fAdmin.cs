@@ -10,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QLQUANCF
 {
@@ -75,7 +74,7 @@ namespace QLQUANCF
             nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "Price", true, DataSourceUpdateMode.Never));
         }
     
-        void LoadCategoryIntoCombobox(System.Windows.Forms.ComboBox cb)//sửa chữa ngay thay hàm ComboBox (System.Windows.Forms.ComboBox)
+        void LoadCategoryIntoCombobox(ComboBox cb)//sửa chữa ngay thay hàm ComboBox (System.Windows.Forms.ComboBox)
         {
             cb.DataSource = CategoryDAO.Instance.GetListCategory();
             cb.DisplayMember = "Name";
