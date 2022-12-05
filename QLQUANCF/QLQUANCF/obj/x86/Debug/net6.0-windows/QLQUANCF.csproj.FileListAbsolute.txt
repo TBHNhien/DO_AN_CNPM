@@ -118,3 +118,33 @@ C:\Users\Admin\Desktop\DO_AN_CNPM\DO_AN\DOAN\QLQUANCF\QLQUANCF\bin\x86\Debug\net
 C:\Users\Admin\Desktop\DO_AN_CNPM\DO_AN\DOAN\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.csproj.CopyComplete
 C:\Users\Admin\Desktop\DO_AN_CNPM\DO_AN\DOAN\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.genruntimeconfig.cache
 C:\Users\Admin\Desktop\DO_AN_CNPM\DO_AN\DOAN\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\ref\QLQUANCF.dll
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\bin\x86\Debug\net6.0-windows\QLQUANCF.exe
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\bin\x86\Debug\net6.0-windows\QLQUANCF.dll.config
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\bin\x86\Debug\net6.0-windows\QLQUANCF.deps.json
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\bin\x86\Debug\net6.0-windows\QLQUANCF.runtimeconfig.json
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\bin\x86\Debug\net6.0-windows\QLQUANCF.dll
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\bin\x86\Debug\net6.0-windows\QLQUANCF.pdb
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\bin\x86\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\bin\x86\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\bin\x86\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\bin\x86\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\bin\x86\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\bin\x86\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.fAccountProfile.resources
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.fAdmin.resources
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.fForget.resources
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.flogin.resources
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.fTableManager.resources
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.Properties.Resources.resources
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.csproj.CopyComplete
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.dll
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\refint\QLQUANCF.dll
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.pdb
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\QLQUANCF.genruntimeconfig.cache
+C:\Users\Administrator\Desktop\My workspace\Đồ án 5-12\DO_AN_CNPM_Fork\QLQUANCF\QLQUANCF\obj\x86\Debug\net6.0-windows\ref\QLQUANCF.dll

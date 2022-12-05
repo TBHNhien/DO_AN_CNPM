@@ -703,3 +703,64 @@ SELECT UserName, DisplayName, Type FROM dbo.Account
 SELECT * FROM ACCOUNT
 -- PASSWORD DEFAULT = 0
 
+
+--Chức năng kho Thêm, sửa, xóa, Xem
+--Thêm dữ liệu vào Store
+CREATE PROC USP_ADDSTORE
+(@USERNAME NVARCHAR(100),
+@MATERIAL NVARCHAR(100),
+@DATEIN DATE,
+@DATEEXPRIRED DATE,
+@PRICEIN FLOAT,
+@AMOUNT INT,
+@CATEGORY NVARCHAR(100))
+AS
+BEGIN
+	INSERT [DBO].[Store](UserName,Material,DateIn,Dateexpired,priceIn,amount,category)
+	VALUES(@USERNAME,@MATERIAL,@DATEIN,@DATEEXPRIRED,@PRICEIN,@AMOUNT,@CATEGORY)
+	SELECT UserName, Material, DateIn, Dateexpired, priceIn,amount,category FROM [DBO].[Store]
+END
+
+--Xóa dữ liệu của Store
+CREATE PROC USP_DELETESTORE
+(@USERNAME NVARCHAR(100),
+@MATERIAL NVARCHAR(100),
+@DATEIN DATE,
+@CATEGORY NVARCHAR(100))
+AS
+BEGIN
+	DELETE [DBO].[Store]
+	WHERE UserName = @USERNAME 
+		and Material = @MATERIAL
+		and DateIn =@DATEIN
+		and category = @CATEGORY
+	SELECT UserName, Material, DateIn, Dateexpired, priceIn,amount,category FROM [DBO].[Store]
+END
+
+--Sửa dữ liệu của Store
+CREATE PROC USP_EDITSTORE
+(@USERNAME NVARCHAR(100),
+@MATERIAL NVARCHAR(100),
+@DATEIN DATE,
+@DATEEXPRIRED DATE,
+@PRICEIN FLOAT,
+@AMOUNT INT,
+@CATEGORY NVARCHAR(100))
+AS
+BEGIN
+	UPDATE [DBO].[Store]
+	SET Dateexpired =@DATEEXPRIRED,
+		priceIn =@PRICEIN,
+		amount = @AMOUNT
+	WHERE UserName = @USERNAME
+		and Material = @MATERIAL
+		and DateIn =@DATEIN
+		and category =@CATEGORY
+END
+
+--Xem dữ liệu của Store
+CREATE PROC USP_SHOWSTORE
+AS
+BEGIN
+	SELECT UserName, Material, DateIn, Dateexpired, priceIn,amount,category FROM [DBO].[Store]
+END

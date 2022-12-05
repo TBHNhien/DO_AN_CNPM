@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QLQUANCF
 {
@@ -73,8 +74,8 @@ namespace QLQUANCF
             txbFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "ID", true, DataSourceUpdateMode.Never));
             nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "Price", true, DataSourceUpdateMode.Never));
         }
-
-        void LoadCategoryIntoCombobox(ComboBox cb)
+    
+        void LoadCategoryIntoCombobox(System.Windows.Forms.ComboBox cb)//sửa chữa ngay thay hàm ComboBox (System.Windows.Forms.ComboBox)
         {
             cb.DataSource = CategoryDAO.Instance.GetListCategory();
             cb.DisplayMember = "Name";
@@ -288,7 +289,7 @@ namespace QLQUANCF
             remove { updateFood -= value; }
         }
 
-        string constr = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLyQuanCafe;Integrated Security=True";
+        string constr = "Data Source=.\\MSSQLSERVER2012;Initial Catalog=QuanLyQuanCafe;Integrated Security=True";
         private void getTotalBill()
         {
             //khởi tạo các đối tượng SqlConnection, SqlDataAdapter, DataTable
@@ -519,6 +520,182 @@ namespace QLQUANCF
             string userName = txbUserName.Text;
 
             ResetPass(userName);
+        }
+
+        private void panel29_Paint(object sender, PaintEventArgs e)
+        {
+            string userName = Properties.Settings.Default.username;
+            txbStoreUserName.Text = userName.ToUpper();
+        }
+
+        private void tbStore_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addDeleteEditStore(string query)
+        {
+            SqlConnection conn = new SqlConnection(constr);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                da.SelectCommand = cmd;
+                da.SelectCommand.CommandText = query;
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                SqlParameter param1 = new SqlParameter
+                {
+                    ParameterName = "@USERNAME",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Value = txbStoreUserName.Text,
+                    Direction = ParameterDirection.Input,
+
+                };
+                SqlParameter param2 = new SqlParameter
+                {
+                    ParameterName = "@MATERIAL",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Value = txbMaterial.Text,
+                    Direction = ParameterDirection.Input,
+
+                };
+                SqlParameter param3 = new SqlParameter
+                {
+                    ParameterName = "@DATEIN",
+                    SqlDbType = SqlDbType.Date,
+                    Value = dtpStoreDateIn.Text,
+                    Direction = ParameterDirection.Input,
+
+                };
+                SqlParameter param4 = new SqlParameter
+                {
+                    ParameterName = "@DATEEXPRIRED",
+                    SqlDbType = SqlDbType.Date,
+                    Value = dtpDateExprired.Text,
+                    Direction = ParameterDirection.Input,
+
+                };
+
+                SqlParameter param5 = new SqlParameter
+                {
+                    ParameterName = "@PRICEIN",
+                    SqlDbType = SqlDbType.Float,
+                    Value = txbStorePriceIn.Text,
+                    Direction = ParameterDirection.Input,
+
+                };
+                SqlParameter param6 = new SqlParameter
+                {
+                    ParameterName = "@AMOUNT",
+                    SqlDbType = SqlDbType.Int,
+                    Value = nmStoreAmount.Text,
+                    Direction = ParameterDirection.Input,
+
+                };
+                SqlParameter param7 = new SqlParameter
+                {
+                    ParameterName = "@CATEGORY",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Value = txbStoreCategory.Text,
+                    Direction = ParameterDirection.Input,
+
+                };
+                cmd.Parameters.Add(param1);
+                cmd.Parameters.Add(param2);
+                cmd.Parameters.Add(param3);
+                cmd.Parameters.Add(param4);
+                cmd.Parameters.Add(param5);
+                cmd.Parameters.Add(param6);
+                cmd.Parameters.Add(param7);
+                da.SelectCommand.Connection = conn;
+                da.Fill(dt);
+                dtgvStore.DataSource = dt;
+                conn.Close();
+                dtgvStore.Columns[0].Width = 150;
+                dtgvStore.Columns[0].HeaderText = "Tên Người Nhập";
+                dtgvStore.Columns[1].Width = 120;
+                dtgvStore.Columns[1].HeaderText = "Tên Nguyên Liệu";
+                dtgvStore.Columns[2].Width = 120;
+                dtgvStore.Columns[2].HeaderText = "Ngày Nhập";
+                dtgvStore.Columns[3].Width = 120;
+                dtgvStore.Columns[3].HeaderText = "Ngày Hết Hạn";
+                dtgvStore.Columns[4].Width = 120;
+                dtgvStore.Columns[4].HeaderText = "Giá Thành";
+                dtgvStore.Columns[5].Width = 120;
+                dtgvStore.Columns[5].HeaderText = "Số Lượng";
+                dtgvStore.Columns[6].Width = 120;
+                dtgvStore.Columns[6].HeaderText = "Thông tin";
+
+                dtgvStore.RowHeadersVisible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnAddStore_Click(object sender, EventArgs e)
+        {
+            string query = "USP_ADDSTORE";
+            addDeleteEditStore(query);
+        }
+
+        private void btnDeleteStore_Click(object sender, EventArgs e)
+        {
+            string query = "USP_DELETESTORE";
+            addDeleteEditStore(query);
+        }
+
+        private void btnEditStore_Click(object sender, EventArgs e)
+        {
+            string query = "USP_EDITSTORE";
+            addDeleteEditStore(query);
+        }
+
+        private void showStore()
+        {
+            SqlConnection conn = new SqlConnection(constr);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                da.SelectCommand = cmd;
+                da.SelectCommand.CommandText = "USP_SHOWSTORE";
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Connection = conn;
+                da.Fill(dt);
+                dtgvStore.DataSource = dt;
+                conn.Close();
+                dtgvStore.Columns[0].Width = 150;
+                dtgvStore.Columns[0].HeaderText = "Tên Người Nhập";
+                dtgvStore.Columns[1].Width = 120;
+                dtgvStore.Columns[1].HeaderText = "Tên Nguyên Liệu";
+                dtgvStore.Columns[2].Width = 120;
+                dtgvStore.Columns[2].HeaderText = "Ngày Nhập";
+                dtgvStore.Columns[3].Width = 120;
+                dtgvStore.Columns[3].HeaderText = "Ngày Hết Hạn";
+                dtgvStore.Columns[4].Width = 120;
+                dtgvStore.Columns[4].HeaderText = "Giá Thành";
+                dtgvStore.Columns[5].Width = 120;
+                dtgvStore.Columns[5].HeaderText = "Số Lượng";
+                dtgvStore.Columns[6].Width = 120;
+                dtgvStore.Columns[6].HeaderText = "Thông tin";
+
+                dtgvStore.RowHeadersVisible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnShowStore_Click(object sender, EventArgs e)
+        {
+            showStore();
         }
     }
 }
