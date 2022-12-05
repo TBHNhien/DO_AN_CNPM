@@ -70,6 +70,7 @@
             this.txbUserName.ReadOnly = true;
             this.txbUserName.Size = new System.Drawing.Size(347, 27);
             this.txbUserName.TabIndex = 1;
+            this.txbUserName.TextChanged += new System.EventHandler(this.txbUserName_TextChanged);
             // 
             // account
             // 

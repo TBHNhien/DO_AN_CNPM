@@ -120,5 +120,10 @@ namespace QLQUANCF
         {
             UpdateAccountInfo();
         }
+
+        private void txbUserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

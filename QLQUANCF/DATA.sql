@@ -700,6 +700,6 @@ SELECT * FROM Food WHERE dbo.fuConvertToUnsign1(name) LIKE N'%' + dbo.fuConvertT
 select * from account 
 SELECT UserName, DisplayName, Type FROM dbo.Account
 
-
-
+SELECT * FROM ACCOUNT
+-- PASSWORD DEFAULT = 0
 

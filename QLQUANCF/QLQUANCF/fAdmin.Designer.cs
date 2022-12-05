@@ -97,14 +97,15 @@
             this.btnAddTable = new System.Windows.Forms.Button();
             this.tbAccount = new System.Windows.Forms.TabPage();
             this.panel23 = new System.Windows.Forms.Panel();
-            this.btnResetPassword = new System.Windows.Forms.Button();
+            this.btnResetPass = new System.Windows.Forms.Button();
             this.panel25 = new System.Windows.Forms.Panel();
-            this.cbAccountType = new System.Windows.Forms.ComboBox();
+            this.nmAccountType = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.panel26 = new System.Windows.Forms.Panel();
             this.txbDisplayName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel27 = new System.Windows.Forms.Panel();
+            this.txbUserName = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
@@ -113,7 +114,6 @@
             this.btnEditAccount = new System.Windows.Forms.Button();
             this.btnDeleteAccount = new System.Windows.Forms.Button();
             this.btnAddAccount = new System.Windows.Forms.Button();
-            this.txbUserName = new System.Windows.Forms.TextBox();
             this.tcAdmin.SuspendLayout();
             this.tbBill.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -149,6 +149,7 @@
             this.tbAccount.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmAccountType)).BeginInit();
             this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel22.SuspendLayout();
@@ -824,7 +825,7 @@
             // 
             // panel23
             // 
-            this.panel23.Controls.Add(this.btnResetPassword);
+            this.panel23.Controls.Add(this.btnResetPass);
             this.panel23.Controls.Add(this.panel25);
             this.panel23.Controls.Add(this.panel26);
             this.panel23.Controls.Add(this.panel27);
@@ -833,32 +834,36 @@
             this.panel23.Size = new System.Drawing.Size(496, 397);
             this.panel23.TabIndex = 4;
             // 
-            // btnResetPassword
+            // btnResetPass
             // 
-            this.btnResetPassword.Location = new System.Drawing.Point(399, 243);
-            this.btnResetPassword.Name = "btnResetPassword";
-            this.btnResetPassword.Size = new System.Drawing.Size(94, 63);
-            this.btnResetPassword.TabIndex = 4;
-            this.btnResetPassword.Text = "Đặt lại mật khẩu";
-            this.btnResetPassword.UseVisualStyleBackColor = true;
-            this.btnResetPassword.Click += new System.EventHandler(this.button2_Click);
+            this.btnResetPass.Location = new System.Drawing.Point(399, 243);
+            this.btnResetPass.Name = "btnResetPass";
+            this.btnResetPass.Size = new System.Drawing.Size(94, 63);
+            this.btnResetPass.TabIndex = 4;
+            this.btnResetPass.Text = "Đặt lại mật khẩu";
+            this.btnResetPass.UseVisualStyleBackColor = true;
+            this.btnResetPass.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel25
             // 
-            this.panel25.Controls.Add(this.cbAccountType);
+            this.panel25.Controls.Add(this.nmAccountType);
             this.panel25.Controls.Add(this.label10);
             this.panel25.Location = new System.Drawing.Point(3, 156);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(490, 80);
             this.panel25.TabIndex = 3;
             // 
-            // cbAccountType
+            // nmAccountType
             // 
-            this.cbAccountType.FormattingEnabled = true;
-            this.cbAccountType.Location = new System.Drawing.Point(175, 20);
-            this.cbAccountType.Name = "cbAccountType";
-            this.cbAccountType.Size = new System.Drawing.Size(313, 28);
-            this.cbAccountType.TabIndex = 1;
+            this.nmAccountType.Location = new System.Drawing.Point(337, 25);
+            this.nmAccountType.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nmAccountType.Name = "nmAccountType";
+            this.nmAccountType.Size = new System.Drawing.Size(150, 27);
+            this.nmAccountType.TabIndex = 1;
             // 
             // label10
             // 
@@ -904,6 +909,14 @@
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(490, 67);
             this.panel27.TabIndex = 1;
+            // 
+            // txbUserName
+            // 
+            this.txbUserName.Location = new System.Drawing.Point(175, 21);
+            this.txbUserName.Name = "txbUserName";
+            this.txbUserName.Size = new System.Drawing.Size(312, 27);
+            this.txbUserName.TabIndex = 5;
+            this.txbUserName.TextChanged += new System.EventHandler(this.txbUserName_TextChanged);
             // 
             // label12
             // 
@@ -964,6 +977,7 @@
             this.btnEditAccount.TabIndex = 2;
             this.btnEditAccount.Text = "Sửa";
             this.btnEditAccount.UseVisualStyleBackColor = true;
+            this.btnEditAccount.Click += new System.EventHandler(this.btnEditAccount_Click);
             // 
             // btnDeleteAccount
             // 
@@ -973,6 +987,7 @@
             this.btnDeleteAccount.TabIndex = 1;
             this.btnDeleteAccount.Text = "Xóa";
             this.btnDeleteAccount.UseVisualStyleBackColor = true;
+            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
             // 
             // btnAddAccount
             // 
@@ -982,15 +997,7 @@
             this.btnAddAccount.TabIndex = 0;
             this.btnAddAccount.Text = "Thêm";
             this.btnAddAccount.UseVisualStyleBackColor = true;
-            // 
-            // txbUserName
-            // 
-            this.txbUserName.Location = new System.Drawing.Point(175, 21);
-            this.txbUserName.Name = "txbUserName";
-            this.txbUserName.ReadOnly = true;
-            this.txbUserName.Size = new System.Drawing.Size(312, 27);
-            this.txbUserName.TabIndex = 5;
-            this.txbUserName.TextChanged += new System.EventHandler(this.txbUserName_TextChanged);
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
             // fAdmin
             // 
@@ -1048,6 +1055,7 @@
             this.panel23.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmAccountType)).EndInit();
             this.panel26.ResumeLayout(false);
             this.panel26.PerformLayout();
             this.panel27.ResumeLayout(false);
@@ -1129,7 +1137,6 @@
         private Button btnAddTable;
         private Panel panel23;
         private Panel panel25;
-        private ComboBox cbAccountType;
         private Label label10;
         private Panel panel26;
         private TextBox txbDisplayName;
@@ -1143,8 +1150,9 @@
         private Button btnEditAccount;
         private Button btnDeleteAccount;
         private Button btnAddAccount;
-        private Button btnResetPassword;
+        private Button btnResetPass;
         private DataGridView dataGridView2;
         private TextBox txbUserName;
+        private NumericUpDown nmAccountType;
     }
 }

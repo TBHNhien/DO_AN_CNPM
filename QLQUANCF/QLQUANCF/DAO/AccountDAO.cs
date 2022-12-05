@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace QLQUANCF.DAO
@@ -45,9 +46,6 @@ namespace QLQUANCF.DAO
         }
 
 
-
-
-
         //trả về username
 
 
@@ -86,6 +84,39 @@ namespace QLQUANCF.DAO
         public DataTable GetListAccount ()
         {
             return DataProvider.Instance.ExecuteQuery("SELECT UserName, DisplayName, Type FROM dbo.Account");
+        }
+
+        //21
+        public bool InsertAccount(string name, string displayName , int type)
+        {
+            string query = string.Format("INSERT ACCOUNT (USERNAME , DISPLAYNAME , TYPE ) VALUES ( N'{0}' , N'{1}' , {2} )", name , displayName , type);//*** string.Format
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool UpdateAccount( string name, string displayName, int type)
+        {
+            string query = string.Format("update ACCOUNT SET DISPLAYNAME = N'{1}' , TYPE ={2} WHERE USERNAME = N'{0}' ", name , displayName , type);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool DeleteAccount(string name)
+        {
+
+
+            string query = string.Format("DELETE ACCOUNT where USERNAME = N'{0}'", name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
+        public bool ResetPassWord (string name)
+        {
+            string query = string.Format("UPDATE ACCOUNT SET PASSWORD = '0' where USERNAME = N'{0}'", name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
         }
     }
 }

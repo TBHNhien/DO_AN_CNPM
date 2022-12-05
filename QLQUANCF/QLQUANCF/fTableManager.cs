@@ -223,6 +223,10 @@ namespace QLQUANCF
         {
             
             fAdmin f = new fAdmin();
+            
+            //lấy thông tin account truyền qua fAdmin //21
+            f.loginAccount= loginAccount;
+
             f.InsertFood += F_InsertFood;
             f.DeleteFood += F_DeleteFood;
             f.UpdateFood += F_UpdateFood;

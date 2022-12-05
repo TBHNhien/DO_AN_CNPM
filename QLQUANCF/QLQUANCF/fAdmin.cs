@@ -21,6 +21,9 @@ namespace QLQUANCF
         //20
         BindingSource accountList = new BindingSource();
         //-- end 20
+
+        //truyền account hiện tại để không đc xóa //21
+        public Account loginAccount;
         public fAdmin()
         {
             InitializeComponent();
@@ -54,7 +57,7 @@ namespace QLQUANCF
         {
             txbUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName", true, DataSourceUpdateMode.Never));
             txbDisplayName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "DisplayName", true, DataSourceUpdateMode.Never));
-            cbAccountType.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
+            nmAccountType.DataBindings.Add(new Binding("Value", dtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
 
         }
 
@@ -128,10 +131,7 @@ namespace QLQUANCF
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
 
-        }
 
         /*
         void LoadAccountList()
@@ -418,6 +418,107 @@ namespace QLQUANCF
         private void txbUserName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+
+        //21
+
+        void AddAccount (string userName , string displayName , int type)
+        {
+           if( AccountDAO.Instance.InsertAccount(userName , displayName , type))
+            {
+                MessageBox.Show("Thêm tài khoản thành công !!!");
+            }
+            else
+            {
+                MessageBox.Show("ADD ACOUNT FAILSE !!!");
+            }
+
+            LoadAccount();
+        }
+
+        void EditAccount(string userName, string displayName, int type)
+        {
+            if (AccountDAO.Instance.UpdateAccount(userName, displayName, type))
+            {
+                MessageBox.Show(" Sửa tài khoản thành công !!!");
+            }
+            else
+            {
+                MessageBox.Show("EDIT ACCOUNT FAILSE !!!");
+            }
+
+            LoadAccount();
+        }
+
+        void DeleteAccount(string userName)
+        {
+            if(loginAccount.UserName.Equals(userName)) 
+            {
+                MessageBox.Show("Tài khoản đang được sử dụng !!! DELETE FAIL");
+                return;
+            }
+            if (AccountDAO.Instance.DeleteAccount(userName))
+            {
+                MessageBox.Show(" Xóa tài khoản thành công !!!");
+            }
+            else
+            {
+                MessageBox.Show("DELETE ACCOUNT FAILSE !!!");
+            }
+
+            LoadAccount();
+        }
+
+        void ResetPass(string userName)
+        {
+            if (AccountDAO.Instance.ResetPassWord(userName))
+            {
+                MessageBox.Show(" Đặt lại MK mặc định thành công !!!");
+            }
+            else
+            {
+                MessageBox.Show("Reset Password ACCOUNT FAILSE !!!");
+            }
+        }
+
+
+
+        private void btnAddAccount_Click(object sender, EventArgs e)
+        {
+            string userName=txbUserName.Text;
+            string displayName=txbDisplayName.Text;
+            int type = (int)nmAccountType.Value;
+
+            AddAccount(userName , displayName , type );
+
+        }
+
+        private void btnEditAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+            string displayName = txbDisplayName.Text;
+            int type = (int)nmAccountType.Value;
+
+            EditAccount(userName, displayName, type);
+
+        }
+
+        private void btnDeleteAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+
+            DeleteAccount(userName);
+
+        }
+
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+
+            ResetPass(userName);
         }
     }
 }
