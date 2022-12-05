@@ -696,9 +696,9 @@ select * from food where dbo.fuConvertToUnsign1(name) like N'%COM%'
 
 SELECT * FROM Food WHERE dbo.fuConvertToUnsign1(name) LIKE N'%' + dbo.fuConvertToUnsign1(N'com') + '%'
 
-
-
-
+--20
+select * from account 
+SELECT UserName, DisplayName, Type FROM dbo.Account
 
 
 

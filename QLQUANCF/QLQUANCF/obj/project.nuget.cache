@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0oA2032gYXcw7lN8VjS+3tGtN7esIqIq/rmh9QgiV6YKGyu5Qvyucou2IYxwgWV+QFlzlU0d/S5qE+gMYKRmmQ==",
+  "dgSpecHash": "zn6AZJnn3MStjSMzymUyog7lTr4X3JgNVrhqbed4TZQ/clsJ5r80cRTjP+2EVxSdQcQxGh9Wdkt7d59FvS53aQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\clone\\DO_AN-\\DOAN\\QLQUANCF\\QLQUANCF\\QLQUANCF.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\DO_AN_CNPM\\DO_AN\\DOAN\\QLQUANCF\\QLQUANCF\\QLQUANCF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

@@ -105,7 +105,6 @@
             this.txbDisplayName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel27 = new System.Windows.Forms.Panel();
-            this.txbUserName = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
@@ -114,6 +113,7 @@
             this.btnEditAccount = new System.Windows.Forms.Button();
             this.btnDeleteAccount = new System.Windows.Forms.Button();
             this.btnAddAccount = new System.Windows.Forms.Button();
+            this.txbUserName = new System.Windows.Forms.TextBox();
             this.tcAdmin.SuspendLayout();
             this.tbBill.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -176,7 +176,7 @@
             this.tbBill.Controls.Add(this.panel2);
             this.tbBill.Location = new System.Drawing.Point(4, 29);
             this.tbBill.Name = "tbBill";
-            this.tbBill.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbBill.Padding = new System.Windows.Forms.Padding(3);
             this.tbBill.Size = new System.Drawing.Size(1008, 462);
             this.tbBill.TabIndex = 0;
             this.tbBill.Text = "Doanh thu";
@@ -261,7 +261,7 @@
             this.tpFood.Controls.Add(this.panel3);
             this.tpFood.Location = new System.Drawing.Point(4, 29);
             this.tpFood.Name = "tpFood";
-            this.tpFood.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpFood.Padding = new System.Windows.Forms.Padding(3);
             this.tpFood.Size = new System.Drawing.Size(1008, 462);
             this.tpFood.TabIndex = 1;
             this.tpFood.Text = "Thức ăn";
@@ -507,7 +507,7 @@
             this.tbFoodCategory.Controls.Add(this.panel10);
             this.tbFoodCategory.Location = new System.Drawing.Point(4, 29);
             this.tbFoodCategory.Name = "tbFoodCategory";
-            this.tbFoodCategory.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbFoodCategory.Padding = new System.Windows.Forms.Padding(3);
             this.tbFoodCategory.Size = new System.Drawing.Size(1008, 462);
             this.tbFoodCategory.TabIndex = 2;
             this.tbFoodCategory.Text = "Danh mục";
@@ -648,7 +648,7 @@
             this.tbTable.Controls.Add(this.panel11);
             this.tbTable.Location = new System.Drawing.Point(4, 29);
             this.tbTable.Name = "tbTable";
-            this.tbTable.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbTable.Padding = new System.Windows.Forms.Padding(3);
             this.tbTable.Size = new System.Drawing.Size(1008, 462);
             this.tbTable.TabIndex = 3;
             this.tbTable.Text = "Bàn";
@@ -817,7 +817,7 @@
             this.tbAccount.Controls.Add(this.panel21);
             this.tbAccount.Location = new System.Drawing.Point(4, 29);
             this.tbAccount.Name = "tbAccount";
-            this.tbAccount.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbAccount.Padding = new System.Windows.Forms.Padding(3);
             this.tbAccount.Size = new System.Drawing.Size(1008, 462);
             this.tbAccount.TabIndex = 5;
             this.tbAccount.Text = "Tài khoản";
@@ -905,14 +905,6 @@
             this.panel27.Size = new System.Drawing.Size(490, 67);
             this.panel27.TabIndex = 1;
             // 
-            // txbUserName
-            // 
-            this.txbUserName.Location = new System.Drawing.Point(175, 24);
-            this.txbUserName.Name = "txbUserName";
-            this.txbUserName.ReadOnly = true;
-            this.txbUserName.Size = new System.Drawing.Size(313, 27);
-            this.txbUserName.TabIndex = 1;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -962,6 +954,7 @@
             this.btnShowAccount.TabIndex = 3;
             this.btnShowAccount.Text = "Xem";
             this.btnShowAccount.UseVisualStyleBackColor = true;
+            this.btnShowAccount.Click += new System.EventHandler(this.btnShowAccount_Click);
             // 
             // btnEditAccount
             // 
@@ -989,6 +982,15 @@
             this.btnAddAccount.TabIndex = 0;
             this.btnAddAccount.Text = "Thêm";
             this.btnAddAccount.UseVisualStyleBackColor = true;
+            // 
+            // txbUserName
+            // 
+            this.txbUserName.Location = new System.Drawing.Point(175, 21);
+            this.txbUserName.Name = "txbUserName";
+            this.txbUserName.ReadOnly = true;
+            this.txbUserName.Size = new System.Drawing.Size(312, 27);
+            this.txbUserName.TabIndex = 5;
+            this.txbUserName.TextChanged += new System.EventHandler(this.txbUserName_TextChanged);
             // 
             // fAdmin
             // 
@@ -1133,7 +1135,6 @@
         private TextBox txbDisplayName;
         private Label label11;
         private Panel panel27;
-        private TextBox txbUserName;
         private Label label12;
         private Panel panel22;
         private DataGridView dtgvAccount;
@@ -1144,5 +1145,6 @@
         private Button btnAddAccount;
         private Button btnResetPassword;
         private DataGridView dataGridView2;
+        private TextBox txbUserName;
     }
 }

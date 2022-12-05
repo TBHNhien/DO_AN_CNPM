@@ -81,5 +81,11 @@ namespace QLQUANCF.DAO
 
             return result > 0;//số dòng đc thay đổi > 0
         }
+
+        //20
+        public DataTable GetListAccount ()
+        {
+            return DataProvider.Instance.ExecuteQuery("SELECT UserName, DisplayName, Type FROM dbo.Account");
+        }
     }
 }

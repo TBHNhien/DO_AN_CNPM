@@ -17,6 +17,10 @@ namespace QLQUANCF
     {
         //dùng biding source -> tránh mất data source
         BindingSource foodList = new BindingSource();
+
+        //20
+        BindingSource accountList = new BindingSource();
+        //-- end 20
         public fAdmin()
         {
             InitializeComponent();
@@ -37,9 +41,26 @@ namespace QLQUANCF
         void Load2()
         {
             dtgvFood.DataSource = foodList;
+            dtgvAccount.DataSource = accountList;//20
             LoadListFood();
+            LoadAccount();
             LoadCategoryIntoCombobox(cbCategory);
             AddFoodBinding();
+            AddAccountBinding();
+        }
+
+        //20
+        void AddAccountBinding()
+        {
+            txbUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName", true, DataSourceUpdateMode.Never));
+            txbDisplayName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "DisplayName", true, DataSourceUpdateMode.Never));
+            cbAccountType.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
+
+        }
+
+        void LoadAccount()
+        {
+            accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
 
         //kỹ thuật biding -> dữ liệu thay đổi khi thằng này thay đổi thằng kia thay đổi theo
@@ -60,6 +81,9 @@ namespace QLQUANCF
         {
             foodList.DataSource = FoodDAO.Instance.GetListFood();
         }
+
+
+
 
         #endregion
 
@@ -382,6 +406,18 @@ namespace QLQUANCF
         private void button1_Click_1(object sender, EventArgs e)
         {
             foodList.DataSource = SearchFoodByName(txbSearchFoodName.Text);
+        }
+
+
+        //20
+        private void btnShowAccount_Click(object sender, EventArgs e)
+        {
+            LoadAccount();
+        }
+
+        private void txbUserName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
