@@ -764,3 +764,26 @@ AS
 BEGIN
 	SELECT UserName, Material, DateIn, Dateexpired, priceIn,amount,category FROM [DBO].[Store]
 END
+
+--Tạo lại bảng Store để thêm khóa chính
+create Table Store
+(
+	UserName NVARCHAR(100) ,
+	Material NVARCHAR(100),
+	DateIn date not null,
+	Dateexpired date,--ngày hết hạn
+	priceIn float ,
+	amount int,
+	category NVARCHAR(100)
+	
+	primary key (username , material, DateIn),
+	FOREIGN KEY (username) REFERENCES dbo.account(username)
+)
+
+--thêm dữ liệu cho Store
+INSERT INTO Store
+VALUES (N'K9', N'CoCa CoLa', '2022/12/05', '2024/12/05', 1500, 4, N'Nước'),
+	(N'K9', N'Thịt Bò', '2022/11/23', '2023/01/12', 4000, 8, N'thịt'),
+	(N'K9', N'Thịt Heo', '2022/11/23', '2023/01/28', 3000, 6, N'Thịt'),
+	(N'Staff', N'Cá Ngừ', '2022/12/24', '2023/02/26', 2500, 7, N'Cá'),
+	(N'Staff', N'Thịt Heo', '2022/12/24', '2023/03/19', 3500, 5, N'Thịt')

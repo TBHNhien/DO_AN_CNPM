@@ -43,6 +43,7 @@
             // 
             // panel1
             // 
+            this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -52,9 +53,10 @@
             this.panel1.Controls.Add(this.MailAddress);
             this.panel1.Controls.Add(this.txbMailRecover);
             this.panel1.Font = new System.Drawing.Font("Arial", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.panel1.Location = new System.Drawing.Point(11, 12);
+            this.panel1.Location = new System.Drawing.Point(10, 9);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(811, 525);
+            this.panel1.Size = new System.Drawing.Size(713, 394);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -62,9 +64,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(124, 328);
+            this.label2.Location = new System.Drawing.Point(108, 246);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(282, 34);
+            this.label2.Size = new System.Drawing.Size(225, 27);
             this.label2.TabIndex = 9;
             this.label2.Text = "Nhập lại mật khẩu :";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
@@ -73,39 +75,38 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(101, 228);
+            this.label1.Location = new System.Drawing.Point(88, 171);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(305, 34);
+            this.label1.Size = new System.Drawing.Size(240, 27);
             this.label1.TabIndex = 8;
             this.label1.Text = "Nhập mật khẩu mới :";
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(412, 327);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox2.Location = new System.Drawing.Point(360, 245);
             this.textBox2.Name = "textBox2";
             this.textBox2.PlaceholderText = "Nhập lại password";
-            this.textBox2.Size = new System.Drawing.Size(396, 35);
+            this.textBox2.Size = new System.Drawing.Size(347, 29);
             this.textBox2.TabIndex = 7;
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(412, 227);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Location = new System.Drawing.Point(360, 170);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "Nhập password";
-            this.textBox1.Size = new System.Drawing.Size(396, 35);
+            this.textBox1.Size = new System.Drawing.Size(347, 29);
             this.textBox1.TabIndex = 6;
             // 
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnExit.ForeColor = System.Drawing.Color.IndianRed;
-            this.btnExit.Location = new System.Drawing.Point(303, 433);
+            this.btnExit.Location = new System.Drawing.Point(265, 325);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(194, 39);
+            this.btnExit.Size = new System.Drawing.Size(170, 29);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Xác nhận";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -115,9 +116,9 @@
             // 
             this.MailAddress.AutoSize = true;
             this.MailAddress.Font = new System.Drawing.Font("Arial", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.MailAddress.Location = new System.Drawing.Point(93, 131);
+            this.MailAddress.Location = new System.Drawing.Point(81, 98);
             this.MailAddress.Name = "MailAddress";
-            this.MailAddress.Size = new System.Drawing.Size(316, 34);
+            this.MailAddress.Size = new System.Drawing.Size(251, 27);
             this.MailAddress.TabIndex = 2;
             this.MailAddress.Text = "Nhập email hoặc sđt :\r\n";
             this.MailAddress.Click += new System.EventHandler(this.label2_Click);
@@ -129,10 +130,11 @@
             this.txbMailRecover.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txbMailRecover.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txbMailRecover.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txbMailRecover.Location = new System.Drawing.Point(415, 130);
+            this.txbMailRecover.Location = new System.Drawing.Point(363, 98);
+            this.txbMailRecover.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbMailRecover.Name = "txbMailRecover";
             this.txbMailRecover.PlaceholderText = "Nhập vào email hoặc sđt";
-            this.txbMailRecover.Size = new System.Drawing.Size(396, 35);
+            this.txbMailRecover.Size = new System.Drawing.Size(347, 29);
             this.txbMailRecover.TabIndex = 0;
             this.txbMailRecover.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -142,13 +144,16 @@
             // 
             // fForget
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(837, 552);
+            this.ClientSize = new System.Drawing.Size(732, 414);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "fForget";
             this.Text = "fForget Password";
@@ -156,6 +161,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

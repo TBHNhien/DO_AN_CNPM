@@ -224,7 +224,7 @@
             this.tbBill.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbBill.Size = new System.Drawing.Size(881, 343);
             this.tbBill.TabIndex = 0;
-            this.tbBill.Text = "Doanh thu";
+            this.tbBill.Text = "Thống kê";
             this.tbBill.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -1129,6 +1129,7 @@
             this.dtgvStore.RowTemplate.Height = 25;
             this.dtgvStore.Size = new System.Drawing.Size(508, 283);
             this.dtgvStore.TabIndex = 1;
+            this.dtgvStore.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvStore_CellContentClick);
             // 
             // panel24
             // 

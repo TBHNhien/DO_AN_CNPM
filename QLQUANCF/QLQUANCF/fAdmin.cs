@@ -524,7 +524,7 @@ namespace QLQUANCF
         private void panel29_Paint(object sender, PaintEventArgs e)
         {
             string userName = Properties.Settings.Default.username;
-            txbStoreUserName.Text = userName.ToUpper();
+            txbStoreUserName.Text = userName;
         }
 
         private void tbStore_Click(object sender, EventArgs e)
@@ -627,7 +627,7 @@ namespace QLQUANCF
                 dtgvStore.Columns[6].Width = 120;
                 dtgvStore.Columns[6].HeaderText = "Thông tin";
 
-                dtgvStore.RowHeadersVisible = true;
+                dtgvStore.RowHeadersVisible = false;
             }
             catch (Exception ex)
             {
@@ -684,17 +684,39 @@ namespace QLQUANCF
                 dtgvStore.Columns[6].Width = 120;
                 dtgvStore.Columns[6].HeaderText = "Thông tin";
 
-                dtgvStore.RowHeadersVisible = true;
+                dtgvStore.RowHeadersVisible = false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /*
+        void addStoreList()
+        {
+            txbStoreUserName.DataBindings.Add(new Binding("Text", dtgvStore.DataSource, "UserName", true, DataSourceUpdateMode.Never));//từ txbFoodName -> thay đổi giá trị "text" thay đổi theo "Name" nằm trong dtgvFood.DataSource
+            txbMaterial.DataBindings.Add(new Binding("Text", dtgvStore.DataSource, "Material", true, DataSourceUpdateMode.Never));
+            dtpStoreDateIn.DataBindings.Add(new Binding("Date", dtgvStore.DataSource, "DateIn", true, DataSourceUpdateMode.Never));
+            dtpDateExprired.DataBindings.Add(new Binding("Date", dtgvStore.DataSource, "Dateeprired", true, DataSourceUpdateMode.Never));
+            txbStorePriceIn.DataBindings.Add(new Binding("Float", dtgvStore.DataSource, "priceIn", true, DataSourceUpdateMode.Never));
+            nmStoreAmount.DataBindings.Add(new Binding("int", dtgvStore.DataSource, "amount", true, DataSourceUpdateMode.Never));
+            txbStoreCategory.DataBindings.Add(new Binding("Text", dtgvStore.DataSource, "category", true, DataSourceUpdateMode.Never));
+        }
+        */
         private void btnShowStore_Click(object sender, EventArgs e)
         {
             showStore();
+        }
+
+        private void dtgvStore_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txbStoreUserName.Text = dtgvStore.CurrentRow.Cells["UserName"].Value.ToString();
+            txbMaterial.Text = dtgvStore.CurrentRow.Cells["Material"].Value.ToString();
+            dtpStoreDateIn.Text = dtgvStore.CurrentRow.Cells["DateIn"].Value.ToString();
+            dtpDateExprired.Text = dtgvStore.CurrentRow.Cells["Dateexpired"].Value.ToString();
+            txbStorePriceIn.Text = dtgvStore.CurrentRow.Cells["priceIn"].Value.ToString();
+            nmStoreAmount.Text = dtgvStore.CurrentRow.Cells["amount"].Value.ToString();
+            txbStoreCategory.Text = dtgvStore.CurrentRow.Cells["category"].Value.ToString();
         }
     }
 }
