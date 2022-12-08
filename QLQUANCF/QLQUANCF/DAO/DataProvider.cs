@@ -19,7 +19,7 @@ namespace QLQUANCF.DAO
         }
         private DataProvider() { }//đảm bảo bên ngoài ko tác động được , chỉ lấy ra thôi
 
-        private string connectionSTR = "Data Source=.\\MSSQLSERVER2012;Initial Catalog=QuanLyQuanCafe;Integrated Security=True";
+        private string connectionSTR = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLyQuanCafe;Integrated Security=True";
 
 
         //truyền vào parameter là stringid c1 ,đưa 1 mảng parameter vào c2
