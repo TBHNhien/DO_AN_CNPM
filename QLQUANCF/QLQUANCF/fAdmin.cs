@@ -25,6 +25,9 @@ namespace QLQUANCF
         //foodcategoryList
         BindingSource foodcategoryList = new BindingSource();
 
+        //TableList
+        BindingSource TableList = new BindingSource();
+
         //truyền account hiện tại để không đc xóa //21
         public Account loginAccount;
         public fAdmin()
@@ -49,13 +52,16 @@ namespace QLQUANCF
             dtgvFood.DataSource = foodList;
             dtgvAccount.DataSource = accountList;//20
             dtgvCategory.DataSource = foodcategoryList;
+            dtgvTable.DataSource = TableList;
             LoadListFood();
             LoadAccount();
             LoadFoodCategory();
+            LoadTableList();
             LoadCategoryIntoCombobox(cbCategory);
             AddFoodBinding();
             AddAccountBinding();
             AddFoodCategory();
+            AddTableList();
         }
 
         //20
@@ -82,6 +88,19 @@ namespace QLQUANCF
         void LoadFoodCategory()
         {
             foodcategoryList.DataSource = CategoryDAO.Instance.GetListFoodCategory();  
+        }
+
+        //TableList
+        void AddTableList()
+        {
+            txbTableID.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "idTableFood", true, DataSourceUpdateMode.Never));
+            txbTableName.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "name", true, DataSourceUpdateMode.Never));
+            cbbTableStatus.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "status", true, DataSourceUpdateMode.Never));
+        }
+
+        void LoadTableList()
+        {
+            TableList.DataSource =TableDAO.Instance.GetLoadTableList();
         }
 
         //kỹ thuật biding -> dữ liệu thay đổi khi thằng này thay đổi thằng kia thay đổi theo

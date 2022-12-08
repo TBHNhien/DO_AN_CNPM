@@ -80,13 +80,13 @@
             this.tbTable = new System.Windows.Forms.TabPage();
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
-            this.cbTableStatus = new System.Windows.Forms.ComboBox();
+            this.cbbTableStatus = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
             this.txbTableName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txbTableID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.dtgvTable = new System.Windows.Forms.DataGridView();
@@ -180,7 +180,7 @@
             this.tbBill.Padding = new System.Windows.Forms.Padding(3);
             this.tbBill.Size = new System.Drawing.Size(1008, 462);
             this.tbBill.TabIndex = 0;
-            this.tbBill.Text = "Doanh thu";
+            this.tbBill.Text = "Thống kê";
             this.tbBill.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -672,20 +672,20 @@
             // 
             // panel20
             // 
-            this.panel20.Controls.Add(this.cbTableStatus);
+            this.panel20.Controls.Add(this.cbbTableStatus);
             this.panel20.Controls.Add(this.label8);
             this.panel20.Location = new System.Drawing.Point(3, 156);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(490, 80);
             this.panel20.TabIndex = 3;
             // 
-            // cbTableStatus
+            // cbbTableStatus
             // 
-            this.cbTableStatus.FormattingEnabled = true;
-            this.cbTableStatus.Location = new System.Drawing.Point(171, 20);
-            this.cbTableStatus.Name = "cbTableStatus";
-            this.cbTableStatus.Size = new System.Drawing.Size(316, 28);
-            this.cbTableStatus.TabIndex = 1;
+            this.cbbTableStatus.FormattingEnabled = true;
+            this.cbbTableStatus.Location = new System.Drawing.Point(318, 24);
+            this.cbbTableStatus.Name = "cbbTableStatus";
+            this.cbbTableStatus.Size = new System.Drawing.Size(169, 28);
+            this.cbbTableStatus.TabIndex = 1;
             // 
             // label8
             // 
@@ -725,20 +725,20 @@
             // 
             // panel19
             // 
-            this.panel19.Controls.Add(this.textBox3);
+            this.panel19.Controls.Add(this.txbTableID);
             this.panel19.Controls.Add(this.label5);
             this.panel19.Location = new System.Drawing.Point(3, 3);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(490, 67);
             this.panel19.TabIndex = 1;
             // 
-            // textBox3
+            // txbTableID
             // 
-            this.textBox3.Location = new System.Drawing.Point(171, 24);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(316, 27);
-            this.textBox3.TabIndex = 1;
+            this.txbTableID.Location = new System.Drawing.Point(171, 24);
+            this.txbTableID.Name = "txbTableID";
+            this.txbTableID.ReadOnly = true;
+            this.txbTableID.Size = new System.Drawing.Size(316, 27);
+            this.txbTableID.TabIndex = 1;
             // 
             // label5
             // 
@@ -1131,7 +1131,7 @@
         private TextBox txbTableName;
         private Label label4;
         private Panel panel19;
-        private TextBox textBox3;
+        private TextBox txbTableID;
         private Label label5;
         private Panel panel12;
         private DataGridView dtgvTable;
@@ -1159,5 +1159,6 @@
         private DataGridView dataGridView2;
         private TextBox txbUserName;
         private NumericUpDown nmAccountType;
+        private ComboBox cbbTableStatus;
     }
 }

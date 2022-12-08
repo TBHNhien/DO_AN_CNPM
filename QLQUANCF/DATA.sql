@@ -193,7 +193,7 @@ END
 
 
 
---TẠO PROC thêm bàn
+--TẠO PROC tim bàn
 CREATE PROC USP_GetTableList
 AS
 	SELECT * FROM TABLEFOOD
@@ -735,7 +735,8 @@ Delete billinfo where idFood in (select idfood from food f,foodcategory fc where
 
 Delete food where idfoodcategory = 1
 
-
+--TableList
+select * from tablefood
 
 
 
