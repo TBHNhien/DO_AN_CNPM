@@ -95,6 +95,35 @@
             this.btnEditTable = new System.Windows.Forms.Button();
             this.btnDeleteTable = new System.Windows.Forms.Button();
             this.btnAddTable = new System.Windows.Forms.Button();
+            this.tbStore = new System.Windows.Forms.TabPage();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.panel35 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.dtpStoreDateIn = new System.Windows.Forms.DateTimePicker();
+            this.panel34 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.nmStoreAmount = new System.Windows.Forms.NumericUpDown();
+            this.panel31 = new System.Windows.Forms.Panel();
+            this.dtpDateExprired = new System.Windows.Forms.DateTimePicker();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel33 = new System.Windows.Forms.Panel();
+            this.txbStorePriceIn = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.panel32 = new System.Windows.Forms.Panel();
+            this.txbStoreCategory = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.txbMaterial = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.txbStoreUserName = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dtgvStore = new System.Windows.Forms.DataGridView();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.btnShowStore = new System.Windows.Forms.Button();
+            this.btnEditStore = new System.Windows.Forms.Button();
+            this.btnDeleteStore = new System.Windows.Forms.Button();
+            this.btnAddStore = new System.Windows.Forms.Button();
             this.tbAccount = new System.Windows.Forms.TabPage();
             this.panel23 = new System.Windows.Forms.Panel();
             this.btnResetPass = new System.Windows.Forms.Button();
@@ -146,6 +175,18 @@
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTable)).BeginInit();
             this.panel11.SuspendLayout();
+            this.tbStore.SuspendLayout();
+            this.panel28.SuspendLayout();
+            this.panel35.SuspendLayout();
+            this.panel34.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmStoreAmount)).BeginInit();
+            this.panel31.SuspendLayout();
+            this.panel33.SuspendLayout();
+            this.panel32.SuspendLayout();
+            this.panel30.SuspendLayout();
+            this.panel29.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvStore)).BeginInit();
+            this.panel24.SuspendLayout();
             this.tbAccount.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel25.SuspendLayout();
@@ -163,6 +204,7 @@
             this.tcAdmin.Controls.Add(this.tpFood);
             this.tcAdmin.Controls.Add(this.tbFoodCategory);
             this.tcAdmin.Controls.Add(this.tbTable);
+            this.tcAdmin.Controls.Add(this.tbStore);
             this.tcAdmin.Controls.Add(this.tbAccount);
             this.tcAdmin.Location = new System.Drawing.Point(56, 35);
             this.tcAdmin.Name = "tcAdmin";
@@ -214,7 +256,6 @@
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(482, 405);
             this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // panel2
             // 
@@ -534,7 +575,6 @@
             this.btnShowCategory.TabIndex = 3;
             this.btnShowCategory.Text = "Xem";
             this.btnShowCategory.UseVisualStyleBackColor = true;
-            this.btnShowCategory.Click += new System.EventHandler(this.btnShowCategory_Click);
             // 
             // btnEditCategory
             // 
@@ -544,7 +584,7 @@
             this.btnEditCategory.TabIndex = 2;
             this.btnEditCategory.Text = "Sửa";
             this.btnEditCategory.UseVisualStyleBackColor = true;
-            this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
+            this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click_1);
             // 
             // btnDeleteCategory
             // 
@@ -554,7 +594,7 @@
             this.btnDeleteCategory.TabIndex = 1;
             this.btnDeleteCategory.Text = "Xóa";
             this.btnDeleteCategory.UseVisualStyleBackColor = true;
-            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click_1);
             // 
             // btnAddCategory
             // 
@@ -564,7 +604,7 @@
             this.btnAddCategory.TabIndex = 0;
             this.btnAddCategory.Text = "Thêm";
             this.btnAddCategory.UseVisualStyleBackColor = true;
-            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click_1);
             // 
             // panel15
             // 
@@ -682,9 +722,9 @@
             // cbbTableStatus
             // 
             this.cbbTableStatus.FormattingEnabled = true;
-            this.cbbTableStatus.Location = new System.Drawing.Point(318, 24);
+            this.cbbTableStatus.Location = new System.Drawing.Point(171, 20);
             this.cbbTableStatus.Name = "cbbTableStatus";
-            this.cbbTableStatus.Size = new System.Drawing.Size(169, 28);
+            this.cbbTableStatus.Size = new System.Drawing.Size(316, 28);
             this.cbbTableStatus.TabIndex = 1;
             // 
             // label8
@@ -815,6 +855,304 @@
             this.btnAddTable.Text = "Thêm";
             this.btnAddTable.UseVisualStyleBackColor = true;
             // 
+            // tbStore
+            // 
+            this.tbStore.Controls.Add(this.panel28);
+            this.tbStore.Controls.Add(this.dtgvStore);
+            this.tbStore.Controls.Add(this.panel24);
+            this.tbStore.Location = new System.Drawing.Point(4, 29);
+            this.tbStore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbStore.Name = "tbStore";
+            this.tbStore.Size = new System.Drawing.Size(1008, 462);
+            this.tbStore.TabIndex = 6;
+            this.tbStore.Text = "Kho";
+            this.tbStore.UseVisualStyleBackColor = true;
+            this.tbStore.Click += new System.EventHandler(this.tbStore_Click);
+            // 
+            // panel28
+            // 
+            this.panel28.Controls.Add(this.panel35);
+            this.panel28.Controls.Add(this.panel34);
+            this.panel28.Controls.Add(this.panel31);
+            this.panel28.Controls.Add(this.panel33);
+            this.panel28.Controls.Add(this.panel32);
+            this.panel28.Controls.Add(this.panel30);
+            this.panel28.Controls.Add(this.panel29);
+            this.panel28.Location = new System.Drawing.Point(591, 76);
+            this.panel28.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(413, 377);
+            this.panel28.TabIndex = 2;
+            // 
+            // panel35
+            // 
+            this.panel35.Controls.Add(this.label18);
+            this.panel35.Controls.Add(this.dtpStoreDateIn);
+            this.panel35.Location = new System.Drawing.Point(3, 236);
+            this.panel35.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel35.Name = "panel35";
+            this.panel35.Size = new System.Drawing.Size(178, 65);
+            this.panel35.TabIndex = 6;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label18.Location = new System.Drawing.Point(5, 21);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(83, 24);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "DateIn :";
+            // 
+            // dtpStoreDateIn
+            // 
+            this.dtpStoreDateIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStoreDateIn.Location = new System.Drawing.Point(85, 20);
+            this.dtpStoreDateIn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpStoreDateIn.Name = "dtpStoreDateIn";
+            this.dtpStoreDateIn.Size = new System.Drawing.Size(90, 27);
+            this.dtpStoreDateIn.TabIndex = 0;
+            // 
+            // panel34
+            // 
+            this.panel34.Controls.Add(this.label17);
+            this.panel34.Controls.Add(this.nmStoreAmount);
+            this.panel34.Location = new System.Drawing.Point(242, 309);
+            this.panel34.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel34.Name = "panel34";
+            this.panel34.Size = new System.Drawing.Size(167, 64);
+            this.panel34.TabIndex = 5;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label17.Location = new System.Drawing.Point(3, 19);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(96, 24);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Amount :";
+            // 
+            // nmStoreAmount
+            // 
+            this.nmStoreAmount.Location = new System.Drawing.Point(101, 19);
+            this.nmStoreAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.nmStoreAmount.Name = "nmStoreAmount";
+            this.nmStoreAmount.Size = new System.Drawing.Size(63, 27);
+            this.nmStoreAmount.TabIndex = 0;
+            // 
+            // panel31
+            // 
+            this.panel31.Controls.Add(this.dtpDateExprired);
+            this.panel31.Controls.Add(this.label14);
+            this.panel31.Location = new System.Drawing.Point(177, 236);
+            this.panel31.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel31.Name = "panel31";
+            this.panel31.Size = new System.Drawing.Size(232, 65);
+            this.panel31.TabIndex = 2;
+            // 
+            // dtpDateExprired
+            // 
+            this.dtpDateExprired.CustomFormat = "dd/MM/yyyy";
+            this.dtpDateExprired.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateExprired.Location = new System.Drawing.Point(139, 16);
+            this.dtpDateExprired.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpDateExprired.Name = "dtpDateExprired";
+            this.dtpDateExprired.Size = new System.Drawing.Size(87, 27);
+            this.dtpDateExprired.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.Location = new System.Drawing.Point(3, 20);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(138, 24);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "DateExpried :";
+            // 
+            // panel33
+            // 
+            this.panel33.Controls.Add(this.txbStorePriceIn);
+            this.panel33.Controls.Add(this.label16);
+            this.panel33.Location = new System.Drawing.Point(3, 309);
+            this.panel33.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel33.Name = "panel33";
+            this.panel33.Size = new System.Drawing.Size(232, 64);
+            this.panel33.TabIndex = 4;
+            // 
+            // txbStorePriceIn
+            // 
+            this.txbStorePriceIn.Location = new System.Drawing.Point(94, 19);
+            this.txbStorePriceIn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbStorePriceIn.Name = "txbStorePriceIn";
+            this.txbStorePriceIn.Size = new System.Drawing.Size(134, 27);
+            this.txbStorePriceIn.TabIndex = 1;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label16.Location = new System.Drawing.Point(5, 19);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(88, 24);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "PriceIn :";
+            // 
+            // panel32
+            // 
+            this.panel32.Controls.Add(this.txbStoreCategory);
+            this.panel32.Controls.Add(this.label15);
+            this.panel32.Location = new System.Drawing.Point(3, 155);
+            this.panel32.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel32.Name = "panel32";
+            this.panel32.Size = new System.Drawing.Size(406, 73);
+            this.panel32.TabIndex = 3;
+            // 
+            // txbStoreCategory
+            // 
+            this.txbStoreCategory.Location = new System.Drawing.Point(139, 28);
+            this.txbStoreCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbStoreCategory.Name = "txbStoreCategory";
+            this.txbStoreCategory.Size = new System.Drawing.Size(259, 27);
+            this.txbStoreCategory.TabIndex = 1;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label15.Location = new System.Drawing.Point(31, 28);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(109, 24);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Category :";
+            // 
+            // panel30
+            // 
+            this.panel30.Controls.Add(this.txbMaterial);
+            this.panel30.Controls.Add(this.label13);
+            this.panel30.Location = new System.Drawing.Point(3, 85);
+            this.panel30.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel30.Name = "panel30";
+            this.panel30.Size = new System.Drawing.Size(406, 61);
+            this.panel30.TabIndex = 1;
+            // 
+            // txbMaterial
+            // 
+            this.txbMaterial.Location = new System.Drawing.Point(139, 13);
+            this.txbMaterial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbMaterial.Name = "txbMaterial";
+            this.txbMaterial.Size = new System.Drawing.Size(262, 27);
+            this.txbMaterial.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label13.Location = new System.Drawing.Point(43, 13);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(98, 24);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Material :";
+            // 
+            // panel29
+            // 
+            this.panel29.Controls.Add(this.txbStoreUserName);
+            this.panel29.Controls.Add(this.label9);
+            this.panel29.Location = new System.Drawing.Point(3, 4);
+            this.panel29.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(406, 73);
+            this.panel29.TabIndex = 0;
+            this.panel29.Paint += new System.Windows.Forms.PaintEventHandler(this.panel29_Paint);
+            // 
+            // txbStoreUserName
+            // 
+            this.txbStoreUserName.Location = new System.Drawing.Point(139, 19);
+            this.txbStoreUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbStoreUserName.Name = "txbStoreUserName";
+            this.txbStoreUserName.ReadOnly = true;
+            this.txbStoreUserName.Size = new System.Drawing.Size(262, 27);
+            this.txbStoreUserName.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(19, 24);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(120, 24);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "UserName :";
+            // 
+            // dtgvStore
+            // 
+            this.dtgvStore.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvStore.Location = new System.Drawing.Point(3, 76);
+            this.dtgvStore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtgvStore.Name = "dtgvStore";
+            this.dtgvStore.RowHeadersWidth = 51;
+            this.dtgvStore.RowTemplate.Height = 25;
+            this.dtgvStore.Size = new System.Drawing.Size(581, 377);
+            this.dtgvStore.TabIndex = 1;
+            this.dtgvStore.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvStore_CellContentClick);
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.btnShowStore);
+            this.panel24.Controls.Add(this.btnEditStore);
+            this.panel24.Controls.Add(this.btnDeleteStore);
+            this.panel24.Controls.Add(this.btnAddStore);
+            this.panel24.Location = new System.Drawing.Point(3, 4);
+            this.panel24.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(581, 64);
+            this.panel24.TabIndex = 0;
+            // 
+            // btnShowStore
+            // 
+            this.btnShowStore.Location = new System.Drawing.Point(358, 4);
+            this.btnShowStore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnShowStore.Name = "btnShowStore";
+            this.btnShowStore.Size = new System.Drawing.Size(113, 56);
+            this.btnShowStore.TabIndex = 3;
+            this.btnShowStore.Text = "Xem";
+            this.btnShowStore.UseVisualStyleBackColor = true;
+            this.btnShowStore.Click += new System.EventHandler(this.btnShowStore_Click);
+            // 
+            // btnEditStore
+            // 
+            this.btnEditStore.Location = new System.Drawing.Point(240, 4);
+            this.btnEditStore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEditStore.Name = "btnEditStore";
+            this.btnEditStore.Size = new System.Drawing.Size(111, 56);
+            this.btnEditStore.TabIndex = 2;
+            this.btnEditStore.Text = "Sửa";
+            this.btnEditStore.UseVisualStyleBackColor = true;
+            this.btnEditStore.Click += new System.EventHandler(this.btnEditStore_Click);
+            // 
+            // btnDeleteStore
+            // 
+            this.btnDeleteStore.Location = new System.Drawing.Point(117, 4);
+            this.btnDeleteStore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDeleteStore.Name = "btnDeleteStore";
+            this.btnDeleteStore.Size = new System.Drawing.Size(117, 56);
+            this.btnDeleteStore.TabIndex = 1;
+            this.btnDeleteStore.Text = "Xóa";
+            this.btnDeleteStore.UseVisualStyleBackColor = true;
+            this.btnDeleteStore.Click += new System.EventHandler(this.btnDeleteStore_Click);
+            // 
+            // btnAddStore
+            // 
+            this.btnAddStore.Location = new System.Drawing.Point(3, 4);
+            this.btnAddStore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAddStore.Name = "btnAddStore";
+            this.btnAddStore.Size = new System.Drawing.Size(106, 56);
+            this.btnAddStore.TabIndex = 0;
+            this.btnAddStore.Text = "Thêm";
+            this.btnAddStore.UseVisualStyleBackColor = true;
+            this.btnAddStore.Click += new System.EventHandler(this.btnAddStore_Click);
+            // 
             // tbAccount
             // 
             this.tbAccount.BackColor = System.Drawing.Color.Transparent;
@@ -919,7 +1257,7 @@
             // 
             this.txbUserName.Location = new System.Drawing.Point(175, 21);
             this.txbUserName.Name = "txbUserName";
-            this.txbUserName.Size = new System.Drawing.Size(312, 27);
+            this.txbUserName.Size = new System.Drawing.Size(313, 27);
             this.txbUserName.TabIndex = 5;
             this.txbUserName.TextChanged += new System.EventHandler(this.txbUserName_TextChanged);
             // 
@@ -1056,6 +1394,25 @@
             this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTable)).EndInit();
             this.panel11.ResumeLayout(false);
+            this.tbStore.ResumeLayout(false);
+            this.panel28.ResumeLayout(false);
+            this.panel35.ResumeLayout(false);
+            this.panel35.PerformLayout();
+            this.panel34.ResumeLayout(false);
+            this.panel34.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmStoreAmount)).EndInit();
+            this.panel31.ResumeLayout(false);
+            this.panel31.PerformLayout();
+            this.panel33.ResumeLayout(false);
+            this.panel33.PerformLayout();
+            this.panel32.ResumeLayout(false);
+            this.panel32.PerformLayout();
+            this.panel30.ResumeLayout(false);
+            this.panel30.PerformLayout();
+            this.panel29.ResumeLayout(false);
+            this.panel29.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvStore)).EndInit();
+            this.panel24.ResumeLayout(false);
             this.tbAccount.ResumeLayout(false);
             this.panel23.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
@@ -1125,7 +1482,7 @@
         private Button btnAddCategory;
         private Panel panel17;
         private Panel panel20;
-        private ComboBox cbTableStatus;
+        private ComboBox cbbTableStatus;
         private Label label8;
         private Panel panel18;
         private TextBox txbTableName;
@@ -1159,6 +1516,34 @@
         private DataGridView dataGridView2;
         private TextBox txbUserName;
         private NumericUpDown nmAccountType;
-        private ComboBox cbbTableStatus;
+        private TabPage tbStore;
+        private Panel panel28;
+        private Panel panel34;
+        private Label label17;
+        private NumericUpDown nmStoreAmount;
+        private Panel panel33;
+        private TextBox txbStorePriceIn;
+        private Label label16;
+        private Panel panel32;
+        private TextBox txbStoreCategory;
+        private Label label15;
+        private Panel panel31;
+        private Label label14;
+        private Panel panel30;
+        private TextBox txbMaterial;
+        private Label label13;
+        private Panel panel29;
+        private TextBox txbStoreUserName;
+        private Label label9;
+        private DataGridView dtgvStore;
+        private Panel panel24;
+        private Button btnShowStore;
+        private Button btnEditStore;
+        private Button btnDeleteStore;
+        private Button btnAddStore;
+        private DateTimePicker dtpDateExprired;
+        private Panel panel35;
+        private Label label18;
+        private DateTimePicker dtpStoreDateIn;
     }
 }

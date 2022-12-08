@@ -45,6 +45,8 @@ namespace QLQUANCF
 
 
 
+
+
         #region methods
 
         void Load2()
@@ -78,7 +80,6 @@ namespace QLQUANCF
             accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
 
-        //foodcategoryList
         void AddFoodCategory()
         {
             txbCategoryID.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "idfoodcategory", true, DataSourceUpdateMode.Never));
@@ -87,7 +88,7 @@ namespace QLQUANCF
 
         void LoadFoodCategory()
         {
-            foodcategoryList.DataSource = CategoryDAO.Instance.GetListFoodCategory();  
+            foodcategoryList.DataSource = CategoryDAO.Instance.GetListFoodCategory();
         }
 
         //TableList
@@ -100,7 +101,7 @@ namespace QLQUANCF
 
         void LoadTableList()
         {
-            TableList.DataSource =TableDAO.Instance.GetLoadTableList();
+            TableList.DataSource = TableDAO.Instance.GetLoadTableList();
         }
 
         //kỹ thuật biding -> dữ liệu thay đổi khi thằng này thay đổi thằng kia thay đổi theo
@@ -111,7 +112,7 @@ namespace QLQUANCF
             nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "Price", true, DataSourceUpdateMode.Never));
         }
 
-        void LoadCategoryIntoCombobox(ComboBox cb)
+        void LoadCategoryIntoCombobox(ComboBox cb)//sửa chữa ngay thay hàm ComboBox (System.Windows.Forms.ComboBox)
         {
             cb.DataSource = CategoryDAO.Instance.GetListCategory();
             cb.DisplayMember = "Name";
@@ -218,7 +219,6 @@ namespace QLQUANCF
             LoadListFood();
         }
 
-        //17
         private void txbFoodID_TextChanged(object sender, EventArgs e)
         {
             if (dtgvFood.SelectedCells.Count > 0)
@@ -308,8 +308,8 @@ namespace QLQUANCF
         private event EventHandler insertFood;
         public event EventHandler InsertFood
         {
-            add  {insertFood += value;}
-            remove { insertFood -= value;}
+            add { insertFood += value; }
+            remove { insertFood -= value; }
         }
 
         private event EventHandler deleteFood;
@@ -326,7 +326,7 @@ namespace QLQUANCF
             remove { updateFood -= value; }
         }
 
-        string constr = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLyQuanCafe;Integrated Security=True";
+        string constr = "Data Source=.\\MSSQLSERVER2012;Initial Catalog=QuanLyQuanCafe;Integrated Security=True";
         private void getTotalBill()
         {
             //khởi tạo các đối tượng SqlConnection, SqlDataAdapter, DataTable
@@ -461,9 +461,9 @@ namespace QLQUANCF
 
         //21
 
-        void AddAccount (string userName , string displayName , int type)
+        void AddAccount(string userName, string displayName, int type)
         {
-           if( AccountDAO.Instance.InsertAccount(userName , displayName , type))
+            if (AccountDAO.Instance.InsertAccount(userName, displayName, type))
             {
                 MessageBox.Show("Thêm tài khoản thành công !!!");
             }
@@ -491,7 +491,7 @@ namespace QLQUANCF
 
         void DeleteAccount(string userName)
         {
-            if(loginAccount.UserName.Equals(userName)) 
+            if (loginAccount.UserName.Equals(userName))
             {
                 MessageBox.Show("Tài khoản đang được sử dụng !!! DELETE FAIL");
                 return;
@@ -524,11 +524,11 @@ namespace QLQUANCF
 
         private void btnAddAccount_Click(object sender, EventArgs e)
         {
-            string userName=txbUserName.Text;
-            string displayName=txbDisplayName.Text;
+            string userName = txbUserName.Text;
+            string displayName = txbDisplayName.Text;
             int type = (int)nmAccountType.Value;
 
-            AddAccount(userName , displayName , type );
+            AddAccount(userName, displayName, type);
 
         }
 
@@ -559,14 +559,208 @@ namespace QLQUANCF
             ResetPass(userName);
         }
 
-        private void btnShowCategory_Click(object sender, EventArgs e)
+        private void panel29_Paint(object sender, PaintEventArgs e)
         {
-            LoadFoodCategory();
+            string userName = Properties.Settings.Default.username;
+            txbStoreUserName.Text = userName;
         }
+
+        private void tbStore_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addDeleteEditStore(string query)
+        {
+            SqlConnection conn = new SqlConnection(constr);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                da.SelectCommand = cmd;
+                da.SelectCommand.CommandText = query;
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                SqlParameter param1 = new SqlParameter
+                {
+                    ParameterName = "@USERNAME",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Value = txbStoreUserName.Text,
+                    Direction = ParameterDirection.Input,
+
+                };
+                SqlParameter param2 = new SqlParameter
+                {
+                    ParameterName = "@MATERIAL",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Value = txbMaterial.Text,
+                    Direction = ParameterDirection.Input,
+
+                };
+                SqlParameter param3 = new SqlParameter
+                {
+                    ParameterName = "@DATEIN",
+                    SqlDbType = SqlDbType.Date,
+                    Value = dtpStoreDateIn.Text,
+                    Direction = ParameterDirection.Input,
+
+                };
+                SqlParameter param4 = new SqlParameter
+                {
+                    ParameterName = "@DATEEXPRIRED",
+                    SqlDbType = SqlDbType.Date,
+                    Value = dtpDateExprired.Text,
+                    Direction = ParameterDirection.Input,
+
+                };
+
+                SqlParameter param5 = new SqlParameter
+                {
+                    ParameterName = "@PRICEIN",
+                    SqlDbType = SqlDbType.Float,
+                    Value = txbStorePriceIn.Text,
+                    Direction = ParameterDirection.Input,
+
+                };
+                SqlParameter param6 = new SqlParameter
+                {
+                    ParameterName = "@AMOUNT",
+                    SqlDbType = SqlDbType.Int,
+                    Value = nmStoreAmount.Text,
+                    Direction = ParameterDirection.Input,
+
+                };
+                SqlParameter param7 = new SqlParameter
+                {
+                    ParameterName = "@CATEGORY",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Value = txbStoreCategory.Text,
+                    Direction = ParameterDirection.Input,
+
+                };
+                cmd.Parameters.Add(param1);
+                cmd.Parameters.Add(param2);
+                cmd.Parameters.Add(param3);
+                cmd.Parameters.Add(param4);
+                cmd.Parameters.Add(param5);
+                cmd.Parameters.Add(param6);
+                cmd.Parameters.Add(param7);
+                da.SelectCommand.Connection = conn;
+                da.Fill(dt);
+                dtgvStore.DataSource = dt;
+                conn.Close();
+                dtgvStore.Columns[0].Width = 150;
+                dtgvStore.Columns[0].HeaderText = "Tên Người Nhập";
+                dtgvStore.Columns[1].Width = 120;
+                dtgvStore.Columns[1].HeaderText = "Tên Nguyên Liệu";
+                dtgvStore.Columns[2].Width = 120;
+                dtgvStore.Columns[2].HeaderText = "Ngày Nhập";
+                dtgvStore.Columns[3].Width = 120;
+                dtgvStore.Columns[3].HeaderText = "Ngày Hết Hạn";
+                dtgvStore.Columns[4].Width = 120;
+                dtgvStore.Columns[4].HeaderText = "Giá Thành";
+                dtgvStore.Columns[5].Width = 120;
+                dtgvStore.Columns[5].HeaderText = "Số Lượng";
+                dtgvStore.Columns[6].Width = 120;
+                dtgvStore.Columns[6].HeaderText = "Thông tin";
+
+                dtgvStore.RowHeadersVisible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnAddStore_Click(object sender, EventArgs e)
+        {
+            string query = "USP_ADDSTORE";
+            addDeleteEditStore(query);
+        }
+
+        private void btnDeleteStore_Click(object sender, EventArgs e)
+        {
+            string query = "USP_DELETESTORE";
+            addDeleteEditStore(query);
+        }
+
+        private void btnEditStore_Click(object sender, EventArgs e)
+        {
+            string query = "USP_EDITSTORE";
+            addDeleteEditStore(query);
+        }
+
+        private void showStore()
+        {
+            SqlConnection conn = new SqlConnection(constr);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                da.SelectCommand = cmd;
+                da.SelectCommand.CommandText = "USP_SHOWSTORE";
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Connection = conn;
+                da.Fill(dt);
+                dtgvStore.DataSource = dt;
+                conn.Close();
+                dtgvStore.Columns[0].Width = 150;
+                dtgvStore.Columns[0].HeaderText = "Tên Người Nhập";
+                dtgvStore.Columns[1].Width = 120;
+                dtgvStore.Columns[1].HeaderText = "Tên Nguyên Liệu";
+                dtgvStore.Columns[2].Width = 120;
+                dtgvStore.Columns[2].HeaderText = "Ngày Nhập";
+                dtgvStore.Columns[3].Width = 120;
+                dtgvStore.Columns[3].HeaderText = "Ngày Hết Hạn";
+                dtgvStore.Columns[4].Width = 120;
+                dtgvStore.Columns[4].HeaderText = "Giá Thành";
+                dtgvStore.Columns[5].Width = 120;
+                dtgvStore.Columns[5].HeaderText = "Số Lượng";
+                dtgvStore.Columns[6].Width = 120;
+                dtgvStore.Columns[6].HeaderText = "Thông tin";
+
+                dtgvStore.RowHeadersVisible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        /*
+        void addStoreList()
+        {
+            txbStoreUserName.DataBindings.Add(new Binding("Text", dtgvStore.DataSource, "UserName", true, DataSourceUpdateMode.Never));//từ txbFoodName -> thay đổi giá trị "text" thay đổi theo "Name" nằm trong dtgvFood.DataSource
+            txbMaterial.DataBindings.Add(new Binding("Text", dtgvStore.DataSource, "Material", true, DataSourceUpdateMode.Never));
+            dtpStoreDateIn.DataBindings.Add(new Binding("Date", dtgvStore.DataSource, "DateIn", true, DataSourceUpdateMode.Never));
+            dtpDateExprired.DataBindings.Add(new Binding("Date", dtgvStore.DataSource, "Dateeprired", true, DataSourceUpdateMode.Never));
+            txbStorePriceIn.DataBindings.Add(new Binding("Float", dtgvStore.DataSource, "priceIn", true, DataSourceUpdateMode.Never));
+            nmStoreAmount.DataBindings.Add(new Binding("int", dtgvStore.DataSource, "amount", true, DataSourceUpdateMode.Never));
+            txbStoreCategory.DataBindings.Add(new Binding("Text", dtgvStore.DataSource, "category", true, DataSourceUpdateMode.Never));
+        }
+        */
+        private void btnShowStore_Click(object sender, EventArgs e)
+        {
+            showStore();
+        }
+
+        private void dtgvStore_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txbStoreUserName.Text = dtgvStore.CurrentRow.Cells["UserName"].Value.ToString();
+            txbMaterial.Text = dtgvStore.CurrentRow.Cells["Material"].Value.ToString();
+            dtpStoreDateIn.Text = dtgvStore.CurrentRow.Cells["DateIn"].Value.ToString();
+            dtpDateExprired.Text = dtgvStore.CurrentRow.Cells["Dateexpired"].Value.ToString();
+            txbStorePriceIn.Text = dtgvStore.CurrentRow.Cells["priceIn"].Value.ToString();
+            nmStoreAmount.Text = dtgvStore.CurrentRow.Cells["amount"].Value.ToString();
+            txbStoreCategory.Text = dtgvStore.CurrentRow.Cells["category"].Value.ToString();
+        }
+
 
         //foodcategoryList
 
-        void AddFoodCategory( string name)
+        void AddFoodCategory(string name)
         {
             if (CategoryDAO.Instance.InsertFoodCategory(name))
             {
@@ -593,7 +787,7 @@ namespace QLQUANCF
             LoadFoodCategory();
         }
 
-        void DeleteCategory( int id)
+        void DeleteCategory(int id)
         {
             if (CategoryDAO.Instance.DeleteFoodCategory(id))
             {
@@ -607,25 +801,21 @@ namespace QLQUANCF
             LoadFoodCategory();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    //
+        private void btnAddCategory_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnEditCategory_Click(object sender, EventArgs e)
-        {
-            int id = Convert.ToInt32 (txbCategoryID.Text);
-            string name = txbCategory.Text;
-            UpdateCategory(id,name);
-        }
-
-        private void btnAddCategory_Click(object sender, EventArgs e)
-        { 
             string name = txbCategory.Text;
             AddFoodCategory(name);
         }
 
-        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        private void btnEditCategory_Click_1(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txbCategoryID.Text);
+            string name = txbCategory.Text;
+            UpdateCategory(id, name);
+        }
+
+        private void btnDeleteCategory_Click_1(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txbCategoryID.Text);
             DeleteCategory(id);
