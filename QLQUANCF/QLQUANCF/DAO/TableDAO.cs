@@ -46,5 +46,10 @@ namespace QLQUANCF.DAO
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("USP_SWITCHTABLE @idtabl1 , @idtable2",new object[] {id1,id2});
         }
+
+        public DataTable GetLoadTableList()
+        {
+            return DataProvider.Instance.ExecuteQuery("select idTableFood , name , status from tablefood");
+        }
     }
 }

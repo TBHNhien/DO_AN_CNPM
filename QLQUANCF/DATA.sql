@@ -193,7 +193,7 @@ END
 
 
 
---TẠO PROC thêm bàn
+--TẠO PROC tim bàn
 CREATE PROC USP_GetTableList
 AS
 	SELECT * FROM TABLEFOOD
@@ -272,9 +272,10 @@ create Table Store
 	amount int,
 	category NVARCHAR(100)
 	
-	primary key (username , material),
+	primary key (username , material , datein),
 	FOREIGN KEY (username) REFERENCES dbo.account(username)
 )
+drop Table Store
 
 create table salary
 (
@@ -703,87 +704,41 @@ SELECT UserName, DisplayName, Type FROM dbo.Account
 SELECT * FROM ACCOUNT
 -- PASSWORD DEFAULT = 0
 
+-- 
+select idfoodcategory , name  from foodcategory
 
---Chức năng kho Thêm, sửa, xóa, Xem
---Thêm dữ liệu vào Store
-CREATE PROC USP_ADDSTORE
-(@USERNAME NVARCHAR(100),
-@MATERIAL NVARCHAR(100),
-@DATEIN DATE,
-@DATEEXPRIRED DATE,
-@PRICEIN FLOAT,
-@AMOUNT INT,
-@CATEGORY NVARCHAR(100))
-AS
-BEGIN
-	INSERT [DBO].[Store](UserName,Material,DateIn,Dateexpired,priceIn,amount,category)
-	VALUES(@USERNAME,@MATERIAL,@DATEIN,@DATEEXPRIRED,@PRICEIN,@AMOUNT,@CATEGORY)
-	SELECT UserName, Material, DateIn, Dateexpired, priceIn,amount,category FROM [DBO].[Store]
-END
 
---Xóa dữ liệu của Store
-CREATE PROC USP_DELETESTORE
-(@USERNAME NVARCHAR(100),
-@MATERIAL NVARCHAR(100),
-@DATEIN DATE,
-@CATEGORY NVARCHAR(100))
-AS
-BEGIN
-	DELETE [DBO].[Store]
-	WHERE UserName = @USERNAME 
-		and Material = @MATERIAL
-		and DateIn =@DATEIN
-		and category = @CATEGORY
-	SELECT UserName, Material, DateIn, Dateexpired, priceIn,amount,category FROM [DBO].[Store]
-END
 
---Sửa dữ liệu của Store
-CREATE PROC USP_EDITSTORE
-(@USERNAME NVARCHAR(100),
-@MATERIAL NVARCHAR(100),
-@DATEIN DATE,
-@DATEEXPRIRED DATE,
-@PRICEIN FLOAT,
-@AMOUNT INT,
-@CATEGORY NVARCHAR(100))
-AS
-BEGIN
-	UPDATE [DBO].[Store]
-	SET Dateexpired =@DATEEXPRIRED,
-		priceIn =@PRICEIN,
-		amount = @AMOUNT
-	WHERE UserName = @USERNAME
-		and Material = @MATERIAL
-		and DateIn =@DATEIN
-		and category =@CATEGORY
-END
+--
 
---Xem dữ liệu của Store
-CREATE PROC USP_SHOWSTORE
-AS
-BEGIN
-	SELECT UserName, Material, DateIn, Dateexpired, priceIn,amount,category FROM [DBO].[Store]
-END
+-- sửa lại phần thanh toán cập nhật lại ngày checkout
+update bill set status = 1 , Datecheckout = GETDATE() WHERE IDBILL =36
 
---Tạo lại bảng Store để thêm khóa chính
-create Table Store
-(
-	UserName NVARCHAR(100) ,
-	Material NVARCHAR(100),
-	DateIn date not null,
-	Dateexpired date,--ngày hết hạn
-	priceIn float ,
-	amount int,
-	category NVARCHAR(100)
-	
-	primary key (username , material, DateIn),
-	FOREIGN KEY (username) REFERENCES dbo.account(username)
-)
+--24 phân trang
 
---thêm dữ liệu cho Store
-INSERT INTO Store
-VALUES (N'K9', N'CoCa CoLa', '2022/12/05', '2024/12/05', 1500, 4, N'Nước'),
-	(N'K9', N'Thịt Bò', '2022/11/23', '2023/01/12', 4000, 8, N'thịt'),
-	(N'K9', N'Thịt Heo', '2022/11/23', '2023/01/28', 3000, 6, N'Thịt'),
-	(N'Staff', N'Cá Ngừ', '2022/12/24', '2023/02/26', 2500, 7, N'Cá'),
-	(N'Staff', N'Thịt Heo', '2022/12/24', '2023/03/19', 3500, 5, N'Thịt')
+SELECT * FROM BILL
+
+
+
+--LẤY RA 4 DÒNG ĐẦU XONG LOẠI 2 DÒNG ĐẦU 
+SELECT TOP 4 * FROM BILL
+EXCEPT 
+SELECT TOP 2 * FROM BILL
+
+--GIẢ SỬ 1 PAGE 2 DÒNG ->PageCount =2 (số dòng mỗi trang) ->pageNum=2
+
+-- xóa foodcategory
+
+select idfood from food f,foodcategory fc where f.idfoodcategory = fc.idfoodcategory and fc.idfoodcategory = 1
+
+Delete billinfo where idFood in (select idfood from food f,foodcategory fc where f.idfoodcategory = fc.idfoodcategory and fc.idfoodcategory = 1)
+
+Delete food where idfoodcategory = 1
+
+--TableList
+select * from tablefood
+
+
+
+
+

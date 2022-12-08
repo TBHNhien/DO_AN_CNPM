@@ -49,7 +49,7 @@ namespace QLQUANCF.DAO
         //B13 : Chèn discount 
         public void CheckOut (int id,int discount) // thay đổi status bàn về 1 là đã thanh toán
         {
-            string query = "UPDATE BILL SET STATUS = 1 , " +"DISCOUNT = " + discount +" WHERE IDbill = " +id;
+            string query = "update bill set status = 1 , Datecheckout = GETDATE() , " + "DISCOUNT = " + discount +" WHERE IDbill = " +id;
             DataProvider.Instance.ExecuteNonQuery(query);//Update ->nonquery
 
             
